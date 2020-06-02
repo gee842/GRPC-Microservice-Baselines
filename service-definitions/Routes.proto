@@ -1,0 +1,25 @@
+syntax = 'proto3';
+service RouteGuide{
+  rpc sayHello(Message) returns (Response) {}
+}
+
+message Message {
+  string GreeterName = 1;
+  string GreetingType = 2;
+  string GreetingMessage = 3;
+}
+
+message Response {
+  string ResponseName= 1;
+  string ResponseText= 2;
+  ResponseType ResponseCode = 3;
+
+  message ResponseType{
+    enum ResponseCodes{
+      ERR = 0;
+      OK = 1;
+      UNK = 2;
+    }
+  }
+
+}
